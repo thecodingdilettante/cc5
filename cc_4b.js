@@ -70,11 +70,11 @@ product.promoPrice = promoPrice;
 //Initialize customer list
 
 let customers = [
-  {Number: 1, customerType: "regular", couponCode: "SAVE10", taxRate: 0.07, cart: [{sku:"001", qty: 2}, {sku:"002", qty: 3}]},
+  {customerNumber: 1, customerType: "regular", couponCode: "SAVE10", taxRate: 0.07, cart: [{sku:"001", qty: 2}, {sku:"002", qty: 3}]},
 
-  {Number: 2, customerType: "student", couponCode: "FREESHIP", taxRate: 0.07, cart: [{sku:"004", qty: 1}, {sku:"005", qty: 5}]},
+  {customerNumber: 2, customerType: "student", couponCode: "FREESHIP", taxRate: 0.07, cart: [{sku:"004", qty: 1}, {sku:"005", qty: 5}]},
 
-  {Number: 3, customerType: "senior", couponCode: "SAVE10", taxRate: 0.07, cart: [{sku:"002", qty: 8}, {sku:"003", qty: 2}]},
+  {customerNumber: 3, customerType: "senior", couponCode: "SAVE10", taxRate: 0.07, cart: [{sku:"002", qty: 8}, {sku:"003", qty: 2}]},
 ];
 
 //Discount by customer
@@ -90,13 +90,4 @@ else if (customerType = "student") {
 
 else {
   discount = 0;
-}
-
-//Simulate purchases
-
-
-//Log each product with discount
-
-
-
-//Log all product inventory, destructuring
+};
