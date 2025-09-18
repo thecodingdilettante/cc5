@@ -1,31 +1,36 @@
 // Coding Challenge 4b
 
 let products = [
-    {category: "Apparel",
+    {sku: "001",
+     category: "Apparel",
      name: "Shoes",
      price: 25.00,
      inventory: 18
      },
 
-    {category: "Groceries",
+    {sku: "002",
+     category: "Groceries",
      name: "Carrot",
      price: 5.50,
      inventory: 12
     },
 
-    {category: "Electronics",
+    {sku: "003",
+     category: "Electronics",
      name: "Robot",
      price: 50.99,
      inventory: 30
     },
 
-    {category: "Household",
+    {sku: "004",
+     category: "Household",
      name: "Table",
      price: 35.50,
      inventory: 40
     },
 
-    {category: "Apparel",
+    {sku: "005",
+     category: "Apparel",
      name: "Hair Ties",
      price: 8.00,
      inventory: 8
@@ -33,13 +38,42 @@ let products = [
   ];
 
 console.log("Step 2. Products Without Discount:");
-stock.forEach(obj => console.log(`${obj.category} | ${obj.name} | \$${obj.price} | ${obj.inventory}`));
+products.forEach(obj => console.log(`${obj.sku} | ${obj.category} | ${obj.name} | \$${obj.price} | ${obj.inventory}`));
 
 //Discount loop by category
+for (const product of products) {
+  let discount = 0;
+
+  switch (product.category) {
+  case "Electronics":
+    discount = .20
+    break;
+
+  case "Apparel":
+    discount = .15
+  console.log(`The promo price is: ${product.price}`);
+      break;
+
+  case "Groceries":
+  case "Household":
+    discount = .10
+  console.log(`The promo price is: ${product.price}`);
+      break;
+
+  default:
+    discount = 0
+    console.log("No Discount Applied")
+    break;
+}
+
+let promoPrice = product.price * (1-discount);
+}
+
+
 
 
 console.log("Step 3. Apply Discount By Category:")
-stock.forEach(obj => console.log(`${obj.category} | ${obj.name} | \$${obj.price} | ${obj.inventory}`));
+
 
 
 //Discount by customer
