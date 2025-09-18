@@ -2,35 +2,35 @@
 
 let products = [
     {sku: "001",
-     category: "Apparel",
+     category: "apparel",
      name: "Shoes",
      price: 25.00,
      inventory: 18
      },
 
     {sku: "002",
-     category: "Groceries",
+     category: "groceries",
      name: "Carrot",
      price: 5.50,
      inventory: 12
     },
 
     {sku: "003",
-     category: "Electronics",
+     category: "electronics",
      name: "Robot",
      price: 50.99,
      inventory: 30
     },
 
     {sku: "004",
-     category: "Household",
+     category: "household",
      name: "Table",
      price: 35.50,
      inventory: 40
     },
 
     {sku: "005",
-     category: "Apparel",
+     category: "apparel",
      name: "Hair Ties",
      price: 8.00,
      inventory: 8
@@ -45,41 +45,52 @@ for (const product of products) {
   let discount = 0;
 
   switch (product.category) {
-  case "Electronics":
+  case "electronics":
     discount = .20
     break;
 
-  case "Apparel":
+  case "apparel":
     discount = .15
-  console.log(`The promo price is: ${product.price}`);
       break;
 
-  case "Groceries":
-  case "Household":
+  case "groceries":
+  case "household":
     discount = .10
-  console.log(`The promo price is: ${product.price}`);
       break;
 
   default:
     discount = 0
-    console.log("No Discount Applied")
     break;
 }
 
 let promoPrice = product.price * (1-discount);
+product.promoPrice = promoPrice;
 }
 
+//Initialize customer list
 
+let customers = [
+  {Number: 1, customerType: "regular", couponCode: "SAVE10", taxRate: 0.07, cart: [{sku:"001", qty: 2}, {sku:"002", qty: 3}]},
 
+  {Number: 2, customerType: "student", couponCode: "FREESHIP", taxRate: 0.07, cart: [{sku:"004", qty: 1}, {sku:"005", qty: 5}]},
 
-console.log("Step 3. Apply Discount By Category:")
-
-
+  {Number: 3, customerType: "senior", couponCode: "SAVE10", taxRate: 0.07, cart: [{sku:"002", qty: 8}, {sku:"003", qty: 2}]},
+];
 
 //Discount by customer
+let customerType = "regular";
 
+if (customerType = "senior") {
+  discount = .07;
+}
 
+else if (customerType = "student") {
+  discount = .05;
+}
 
+else {
+  discount = 0;
+}
 
 //Simulate purchases
 
