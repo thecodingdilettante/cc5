@@ -1,14 +1,15 @@
 // Coding Challenge 5
 
 let employees = [
-    {name: "Willy Smith", hourlyRate: 500, hoursWorked: 40},
+    {name: "Willy Smith", hourlyRate: 500, hoursWorked: 50},
     {name: "Sab Carpenter", hourlyRate: 600, hoursWorked: 35},
     {name: "Addy Rae", hourlyRate: 200, hoursWorked: 15},
   ];
 
   //BASE PAY
   function calculateBasePay(rate, hours) {
-  return rate * hours;
+  minimum = Math.min(hours, 40);
+  return rate * minimum;
 }
 
 //OVERTIME
@@ -27,16 +28,14 @@ function calculateTaxes(grossPay) {
 
 //PAYROLL
 function processPayroll (employees){
-  let basePay;
-  if (employees.hoursWorked <= 40)
-    basePay = calculateBasePay(employees.rate, employees.hoursWorked)
+  let basePay = 0;
+    basePay = calculateBasePay(employees.hourlyRate, employees.hoursWorked)
 
-  let overtimePay;
+  let overtimePay = 0;
   if (employees.hoursWorked > 40)
-    overtimePay = calculateOvertimePay(employees.rate, employees.hoursWorked)
+    overtimePay = calculateOvertimePay(employees.hourlyRate, employees.hoursWorked)
 
-  let grossPay;
-  grossPay = basePay + overtimePay;
+  let grossPay = basePay + overtimePay;
 
   let payWithTax = calculateTaxes(grossPay);
   return {
