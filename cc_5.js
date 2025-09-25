@@ -24,3 +24,32 @@ function calculateTaxes(grossPay) {
   tax = 0.15 * grossPay
   return grossPay - tax;
 }
+
+//PAYROLL
+function processPayroll (employees){
+  let basePay;
+  if (employees.hoursWorked <= 40)
+    basePay = calculateBasePay(employees.rate, employees.hoursWorked)
+
+  let overtimePay;
+  if (employees.hoursWorked > 40)
+    overtimePay = calculateOvertimePay(employees.rate, employees.hoursWorked)
+
+  let grossPay;
+  grossPay = basePay + overtimePay;
+
+  let payWithTax = calculateTaxes(grossPay);
+  return {
+    name: employees.name,
+    basePay: basePay.toFixed(2),
+    overtimePay: overtimePay.toFixed(2),
+    grossPay: grossPay.toFixed(2),
+    payWithTax: payWithTax.toFixed(2)
+  };
+}
+
+//PAYROLL FOR EACH EMPLOYEE
+
+employees.forEach(employee => {
+console.log(processPayroll(employee));
+});
